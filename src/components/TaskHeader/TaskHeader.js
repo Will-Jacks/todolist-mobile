@@ -10,28 +10,17 @@ export default function TaskHeader() {
 
     return (
         <View style={styles.container} >
-            {
-                formExibitionState ? (
-                    <View style={styles.container}>
-                        <View style={styles.createTaskContainer}>
-                            <Text style={textStyle.general} >Tarefas</Text>
-                            <TouchableOpacity onPress={() => updateFormExibitionState()}>
-                                <FontAwesomeIcon icon={faPlus} size={30} />
-                            </TouchableOpacity>
-                        </View>
-                        <Form />
-                    </View>
-                ) : (
-                    <View style = {styles.container}>
-                        <View style={styles.createTaskContainer}>
-                            <Text style={textStyle.general} >Tarefas</Text>
-                            <TouchableOpacity onPress={() => updateFormExibitionState()}>
-                                <FontAwesomeIcon icon={faPlus} size={30} />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                )
-            }
+            <View style={styles.container}>
+                <View style={styles.createTaskContainer}>
+                    <Text style={textStyle.general} >Tarefas</Text>
+                    <TouchableOpacity onPress={() => updateFormExibitionState()}>
+                        <FontAwesomeIcon icon={faPlus} size={30} />
+                    </TouchableOpacity>
+                </View>
+                {formExibitionState && <Form />}
+            </View>
+
+
 
         </View>
     )

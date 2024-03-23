@@ -1,5 +1,5 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import HomeScreen from "../src/screens/HomeScreen";
+import Login from "../src/screens/Login.js";
 
 const Stack = createStackNavigator();
 
@@ -8,7 +8,7 @@ export default function MyStack() {
     
     return(
         <Stack.Navigator>
-            <Stack.Screen name="home" component={HomeScreen} options={{headerShown: false}}/>    
+            <Stack.Screen name="Login" component={Login}/>    
         </Stack.Navigator>
     );
 }

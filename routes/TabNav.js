@@ -11,6 +11,7 @@ const Tab = createBottomTabNavigator();
 export default function TabNav() {
 
     return (
+
         <Tab.Navigator>
             <Tab.Screen
                 name="Home"
@@ -27,5 +28,6 @@ export default function TabNav() {
                 }}
             />
         </Tab.Navigator>
+
     )
 }
