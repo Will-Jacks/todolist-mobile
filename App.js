@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
 import MyStack from './routes/MyStack.js';
-import TabNav from './routes/TabNav.js';
 import { StatusBar } from 'expo-status-bar';
 
 
@@ -10,7 +9,6 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style='dark' />
       <MyStack />
-      
     </NavigationContainer>
   );
 }

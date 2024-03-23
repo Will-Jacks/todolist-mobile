@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
 
 
-export default function AppHeader() {
+export default function AppHeader({ children }) {
 
     return (
         <View style={styles.containerHeader} >
-            <Text style={styles.title}>To do List</Text>
+            <Text style={styles.title}>{children}</Text>
         </View>
     )
 }

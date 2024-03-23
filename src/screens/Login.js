@@ -2,12 +2,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import AppHeader from "../components/AppHeader/AppHeader"
 
+
 export default function Login() {
 
+    
 
     return (
         <View style={styles.container}>
-            <AppHeader />
+            <AppHeader>To Do List</AppHeader>
 
             <Text>Usuário</Text>
             <TextInput style={styles.input} placeholder="Digite seu usuário" />
@@ -21,6 +23,10 @@ export default function Login() {
 
             <TouchableOpacity style={styles.forgotPasswordContainer} >
                 <Text style={styles.forgotPasswordText} >Esqueci minha senha</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.forgotPasswordContainer} >
+                <Text style={styles.forgotPasswordText} >Crie sua conta</Text>
             </TouchableOpacity>
         </View>
     )
@@ -64,7 +70,8 @@ const styles = StyleSheet.create({
     },
     forgotPasswordText: {
         color: 'blue',
-        borderBottomWidth: 1,
-        borderBottomColor: 'blue',
+        /* borderBottomWidth: 1,
+        borderBottomColor: 'blue', */
+        textDecorationLine: "underline"
     }
 })

@@ -16,7 +16,7 @@ export default function HomeScreen() {
                 <FormExibitionProvider>
 
                     <View style={styles.container}>
-                        <AppHeader />
+                        <AppHeader>To Do List</AppHeader>
                         <TaskHeader />
                         <RenderTasks />
                         <StatusBar style="auto" />

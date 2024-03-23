@@ -3,7 +3,6 @@ import { useTaskContext } from "../context/TaskContext";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCheck, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { StyleSheet } from "react-native";
-import { useState } from "react";
 
 export default function RenderTasks() {
     const { taskTitle, deleteTaskTitle, completed, setCompleted } = useTaskContext();
