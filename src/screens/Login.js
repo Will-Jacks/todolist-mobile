@@ -42,8 +42,6 @@ export default function Login({ navigation }) {
 
     function handleLoginPress() {
         post();
-        console.log(user, password);
-
     }
 
     return (
