@@ -17,8 +17,10 @@ export default function TabNav() {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    tabBarIcon: ({ color, size }) => <FontAwesome name='home' size={size} color={color} />
+                    tabBarIcon: ({ color, size }) => <FontAwesome name='home' size={size} color={color} />,
+                    headerShown: false
                 }}
+                
             />
             <Tab.Screen
                 name="Profile"

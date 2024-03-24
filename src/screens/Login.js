@@ -3,9 +3,11 @@ import { TextInput } from "react-native-gesture-handler"
 import AppHeader from "../components/AppHeader/AppHeader"
 
 
-export default function Login() {
+export default function Login({navigation}) {
 
-    
+    function handleLoginPress() {
+        navigation.navigate('App')
+    }
 
     return (
         <View style={styles.container}>
@@ -17,7 +19,7 @@ export default function Login() {
             <Text>Senha</Text>
             <TextInput style={styles.input} placeholder="Digite sua senha" textContentType="password" secureTextEntry={true} />
 
-            <TouchableOpacity style={styles.loginTouchableOpacity}>
+            <TouchableOpacity style={styles.loginTouchableOpacity} onPress={()=> handleLoginPress()}>
                 <Text style={styles.loginText}>Entrar</Text>
             </TouchableOpacity>
 
