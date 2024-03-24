@@ -1,12 +1,49 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import AppHeader from "../components/AppHeader/AppHeader"
+import { useState } from "react";
 
 
-export default function Login({navigation}) {
+export default function Login({ navigation }) {
+
+    const [user, setUser] = useState('');
+    const [password, setPassword] = useState('');
+
+
+    async function post() {
+
+        const jsonData = {
+            user,
+            password
+        };
+
+        const url = 'https://d031-2804-14d-be88-93f9-5966-2a6f-650c-74c7.ngrok-free.app/login';
+
+        const headerOptions = {
+            method: 'POST',
+            headers: {
+
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
+        };
+
+        const response = await fetch(url, headerOptions);
+        if (response.status === 200) {
+            navigation.navigate('App')
+        } else {
+            Alert.alert(
+                'Erro',
+                'Usuário e/ou senha inválidos!'
+            );
+        }
+
+    }
 
     function handleLoginPress() {
-        navigation.navigate('App')
+        post();
+        console.log(user, password);
+
     }
 
     return (
@@ -14,12 +51,23 @@ export default function Login({navigation}) {
             <AppHeader>To Do List</AppHeader>
 
             <Text>Usuário</Text>
-            <TextInput style={styles.input} placeholder="Digite seu usuário" />
+            <TextInput style={styles.input}
+                placeholder="Digite seu usuário"
+                onChangeText={setUser} />
 
             <Text>Senha</Text>
-            <TextInput style={styles.input} placeholder="Digite sua senha" textContentType="password" secureTextEntry={true} />
+            <TextInput
+                style={styles.input}
+                placeholder="Digite sua senha"
+                textContentType="password"
+                secureTextEntry={true}
+                onChangeText={setPassword}
+            />
 
-            <TouchableOpacity style={styles.loginTouchableOpacity} onPress={()=> handleLoginPress()}>
+            <TouchableOpacity
+                style={styles.loginTouchableOpacity}
+                onPress={() => handleLoginPress()}
+            >
                 <Text style={styles.loginText}>Entrar</Text>
             </TouchableOpacity>
 
@@ -27,7 +75,10 @@ export default function Login({navigation}) {
                 <Text style={styles.forgotPasswordText} >Esqueci minha senha</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.forgotPasswordContainer} >
+            <TouchableOpacity
+                style={styles.forgotPasswordContainer}
+                onPress={() => navigation.navigate('Register')}
+            >
                 <Text style={styles.forgotPasswordText} >Crie sua conta</Text>
             </TouchableOpacity>
         </View>
