@@ -18,16 +18,16 @@ export default function UserRegistration() {
             <AppHeader>Cadastre-se</AppHeader>
 
             <Text>Nome</Text>
-            <TextInput style={styles.input} placeholder="Digite seu nome" value={username} onChangeText={(e) => setUsername(e)} />
+            <TextInput style={styles.input} placeholder="Digite seu nome" value={username} onChangeText={setUsername} />
 
             <Text>Email</Text>
-            <TextInput style={styles.input} placeholder="exemplo@exemplo.com" value={email} onChangeText={(e) => setEmail(e)} />
+            <TextInput style={styles.input} placeholder="exemplo@exemplo.com" value={email} onChangeText={setEmail} />
 
             <Text>Login</Text>
-            <TextInput style={styles.input} placeholder="Digite seu usuário" value={userLogin} onChangeText={(e) => setUserLogin(e)} />
+            <TextInput style={styles.input} placeholder="Digite seu usuário" value={userLogin} onChangeText={setUserLogin} />
 
             <Text>Senha</Text>
-            <TextInput style={styles.input} placeholder="Digite sua senha" textContentType="password" secureTextEntry={true} value={userPassword} onChangeText={(e) => setUserPassword(e)} />
+            <TextInput style={styles.input} placeholder="Digite sua senha" textContentType="password" secureTextEntry={true} value={userPassword} onChangeText={setUserPassword} />
 
 
             <TouchableOpacity style={styles.loginTouchableOpacity} onPress={() => handleUserRegistration()}>
