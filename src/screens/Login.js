@@ -17,7 +17,8 @@ export default function Login({ navigation }) {
             password
         };
 
-        const url = 'https://d031-2804-14d-be88-93f9-5966-2a6f-650c-74c7.ngrok-free.app/login';
+        /* Url de conexão para validação de usuário */
+        const url = 'http://192.168.0.30:8080/users/login';
 
         const headerOptions = {
             method: 'POST',

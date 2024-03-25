@@ -10,37 +10,34 @@ export function TaskProvider({ children }) {
     const [taskTitle, setTaskTitle] = useState([]);
     const [completed, setCompleted] = useState(Array(taskTitle.length).fill(false));
 
-    useEffect(() => {
-        async function fetchTasks() {
-            try {
-                const tasksJSON = await AsyncStorage.getItem('tasks');
-                const parsedTasks = JSON.parse(tasksJSON);
-                if (parsedTasks) {
-                    setTaskTitle(parsedTasks)
-                }
-            }
-            catch (error) {
-                console.error('Erro ao recuperar as tarefas: ', error);
+    async function fetchTasks() {
+        try {
+            const tasksJSON = await AsyncStorage.getItem('tasks');
+            const parsedTasks = JSON.parse(tasksJSON);
+            if (parsedTasks) {
+                setTaskTitle(parsedTasks)
             }
         }
+        catch (error) {
+            console.error('Erro ao recuperar as tarefas: ', error);
+        }
+    }
 
+    async function storeData(value) {
+        try {
+            await AsyncStorage.setItem('tasks', JSON.stringify(value));
+        }
+        catch (error) {
+            console.error("Erro ao armazenar os dados: ", error);
+        }
+    }
+
+    useEffect(() => {
         fetchTasks();
     }, []);
 
     useEffect(() => {
-        async function storeData(value) {
-            try {
-                await AsyncStorage.setItem('tasks', JSON.stringify(value));
-            }
-            catch (error) {
-                console.error("Erro ao armazenar os dados: ", error);
-            }
-        }
-
         storeData(taskTitle);
-
-
-
     }, [taskTitle])
 
     function updateTaskTitle(newTaskTitle) {
